@@ -1,19 +1,17 @@
 # Introduction
 
-This program runs a batch of games between 2 GTP-compatible Go (围棋, 囲碁, 바둑) engines to compare their strength. It can also compare the strength under different options of the same engine.
+This program can compare the strength of two Go (围棋, 囲碁, 바둑) engines that are GTP-compatible by running a batch of games between them. It can also compare the strength under different options of the same engine.
 
-# Install
+# Requirements
 
-```bash
-npm install go-engine-tester -g
-```
+- Node.js 8 or higher installed.
 
 # Usage
 
 Add a file `config.json`, then run:
 
 ```bash
-go-engine-tester config.json
+npx go-engine-tester config.json
 ```
 
 `config.json` example:
@@ -34,7 +32,7 @@ go-engine-tester config.json
 }
 ```
 
-This will play 30 games between the first engine and the second engine, and finally print the result.
+This will play 30 games between the first engine and the second engine, and finally print the result. Note that the path in `command` is relative to the working directory not the config file.
 
 There's an optional `spawnOptions` attribute, so that it could pass environment variables to the engine processes:
 
