@@ -19,12 +19,10 @@ npx go-engine-tester config.json
 ```json
 {
     "first": {
-        "name": "config1",
         "command": "./leelaz",
         "args": ["-w", "network-173.gz", "--gtp", "--noponder", "-p", "100"]
     },
     "second": {
-        "name": "config2",
         "command": "./leelaz",
         "args": ["-w", "network-157.gz", "--gtp", "--noponder", "-p", "100"]
     },
@@ -39,7 +37,6 @@ There's an optional `spawnOptions` attribute, so that it could pass environment 
 ```json
 {
     "first": {
-        "name": "config1",
         "command": "./leelaz",
         "args": ["-w", "network-173.gz", "--gtp", "--noponder", "-p", "100"],
         "spawnOptions": {
@@ -49,7 +46,6 @@ There's an optional `spawnOptions` attribute, so that it could pass environment 
         }
     },
     "second": {
-        "name": "config2",
         "command": "./leelaz",
         "args": ["-w", "network-157.gz", "--gtp", "--noponder", "-p", "100"],
         "spawnOptions": {
