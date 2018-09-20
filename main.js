@@ -35,7 +35,7 @@ let sendCommand = async (engine, command) => {
     if (error) throw new Error("Engine threw an error!");
     return content;
 };
- 
+
 let playGame = async swaps => {
     let controller1 = new Controller(config1.command, config1.args, config1.spawnOptions);
     let controller2 = new Controller(config2.command, config2.args, config2.spawnOptions);
@@ -78,7 +78,7 @@ let playGame = async swaps => {
         }
         moveIndex++;
     }
-    
+
     gtpMoves.forEach(m => console.log(m));
     console.log(`Winner: ${winnerColor}`);
 
