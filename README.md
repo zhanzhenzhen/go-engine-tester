@@ -1,6 +1,6 @@
 # Introduction
 
-This program runs a batch of games between 2 Go (围棋, 囲碁, 바둑) engines to compare their strength. It can also compare the strength under different options in the same engine.
+This program runs a batch of games between 2 GTP-compatible Go (围棋, 囲碁, 바둑) engines to compare their strength. It can also compare the strength under different options of the same engine.
 
 # Install
 
