@@ -1,3 +1,5 @@
+"use strict";
+
 const {Controller, Command, Response} = require("@sabaki/gtp");
 const fs = require("fs");
 

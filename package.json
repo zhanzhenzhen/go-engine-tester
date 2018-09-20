@@ -1,6 +1,6 @@
 {
     "name": "go-engine-tester",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Go (围棋, 囲碁, 바둑) engine tester",
     "keywords": ["go", "engine", "test"],
     "author": "Zhenzhen Zhan <zhanzhenzhen@hotmail.com>",
@@ -16,7 +16,7 @@
         "node": ">=8.0.0"
     },
     "bin": {
-        "go-engine-tester": "./main.js"
+        "go-engine-tester": "./bin/go-engine-tester"
     },
     "preferGlobal": true
 }
