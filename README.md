@@ -20,11 +20,21 @@ npx go-engine-tester config.json
 {
     "first": {
         "command": "./leelaz",
-        "args": ["-w", "network-173.gz", "--gtp", "--noponder", "-p", "100"]
+        "args": ["-w", "network-173.gz", "--gtp", "--noponder"],
+        "initialGtpCommands": [
+            {"name": "komi", "args": ["7.5"]},
+            {"name": "time_settings", "args": ["0", "0", "1"]},
+            {"name": "boardsize", "args": ["19"]}
+        ]
     },
     "second": {
         "command": "./leelaz",
-        "args": ["-w", "network-157.gz", "--gtp", "--noponder", "-p", "100"]
+        "args": ["-w", "network-157.gz", "--gtp", "--noponder"],
+        "initialGtpCommands": [
+            {"name": "komi", "args": ["7.5"]},
+            {"name": "time_settings", "args": ["0", "0", "1"]},
+            {"name": "boardsize", "args": ["19"]}
+        ]
     },
     "times": 30
 }
@@ -32,13 +42,20 @@ npx go-engine-tester config.json
 
 This will play 30 games between the first engine and the second engine, and finally print the result. Note that the path in `command` is relative to the working directory not the config file. Also note that on Windows, use `\\` not `\` for path separator, or just use `/`.
 
-There's an optional `spawnOptions` attribute, so that it could pass environment variables to the engine processes:
+For details of GTP commands such as `time_settings`, [click here](http://www.lysator.liu.se/~gunnar/gtp/gtp2-spec-draft2/gtp2-spec.html).
+
+There's an optional `spawnOptions` attribute, so that it could pass environment variables to the engine processes. For example:
 
 ```json
 {
     "first": {
         "command": "./leelaz",
-        "args": ["-w", "network-173.gz", "--gtp", "--noponder", "-p", "100"],
+        "args": ["-w", "network-173.gz", "--gtp", "--noponder"],
+        "initialGtpCommands": [
+            {"name": "komi", "args": ["7.5"]},
+            {"name": "time_settings", "args": ["0", "0", "1"]},
+            {"name": "boardsize", "args": ["19"]}
+        ],
         "spawnOptions": {
             "env": {
                 "DYLD_LIBRARY_PATH": "/Users/your-name/boost_1_67_0/lib"
@@ -47,7 +64,12 @@ There's an optional `spawnOptions` attribute, so that it could pass environment 
     },
     "second": {
         "command": "./leelaz",
-        "args": ["-w", "network-157.gz", "--gtp", "--noponder", "-p", "100"],
+        "args": ["-w", "network-157.gz", "--gtp", "--noponder"],
+        "initialGtpCommands": [
+            {"name": "komi", "args": ["7.5"]},
+            {"name": "time_settings", "args": ["0", "0", "1"]},
+            {"name": "boardsize", "args": ["19"]}
+        ],
         "spawnOptions": {
             "env": {
                 "DYLD_LIBRARY_PATH": "/Users/your-name/boost_1_67_0/lib"
@@ -57,3 +79,5 @@ There's an optional `spawnOptions` attribute, so that it could pass environment 
     "times": 30
 }
 ```
+
+For details of `spawnOptions`, [click here](https://nodejs.org/dist/latest-v8.x/docs/api/child_process.html#child_process_child_process_spawn_command_args_options).
