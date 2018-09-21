@@ -40,11 +40,11 @@ npx go-engine-tester config.json
 }
 ```
 
-This will play 30 games between the first engine and the second engine, and finally print the result. Note that the path in `command` is relative to the working directory not the config file. Also note that on Windows, use `\\` not `\` for path separator, or just use `/`.
+This will play 30 games between the two engines, alternating black and white for each game, and finally print the result. Note that the path in `command` is relative to the working directory not the config file. Also note that on Windows, use `\\` not `\` for path separator, or just use `/`.
 
 For details of GTP commands such as `time_settings`, [click here](http://www.lysator.liu.se/~gunnar/gtp/gtp2-spec-draft2/gtp2-spec.html).
 
-There's an optional `spawnOptions` attribute, so that it could pass environment variables to the engine processes. For example:
+There's an optional `spawnOptions` property, so that it could pass environment variables to the engine processes. For example:
 
 ```json
 {
