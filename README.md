@@ -30,7 +30,7 @@ npx go-engine-tester config.json
 }
 ```
 
-This will play 30 games between the first engine and the second engine, and finally print the result. Note that the path in `command` is relative to the working directory not the config file.
+This will play 30 games between the first engine and the second engine, and finally print the result. Note that the path in `command` is relative to the working directory not the config file. Also note that on Windows, use `\\` not `\` for path separator, or just use `/`.
 
 There's an optional `spawnOptions` attribute, so that it could pass environment variables to the engine processes:
 
