@@ -81,3 +81,9 @@ There's an optional `spawnOptions` attribute, so that it could pass environment 
 ```
 
 For details of `spawnOptions`, [click here](https://nodejs.org/dist/latest-v8.x/docs/api/child_process.html#child_process_child_process_spawn_command_args_options).
+
+# FAQ
+
+Q: Why does it restart the process for each game? Process initialization can be slow!
+
+A: This ensures that each game is treated equally. A lot of programs are so smart that they can cache the previous calculation to speed up calculations for the next game. We must avoid that, otherwise the result may be incorrect.
