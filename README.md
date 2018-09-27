@@ -42,7 +42,29 @@ npx go-engine-tester config.json
 
 This will play 30 games between the two engines, alternating black and white for each game, and finally print the result. Note that the path in `command` is relative to the working directory not the config file. Also note that on Windows, use `\\` not `\` for path separator, or just use `/`.
 
+By default it doesn't output the game record as SGF. You can enable that by adding an optional `printsgf` property:
+
+```
+{
+    ...
+    "printsgf": <value>
+}
+```
+
+`<value>` can be `"file"`, `"stdout"` or `null` (default). Note that setting this property will have no effect if the engine doesn't support `printsgf` command. This is a non-standard GTP command. Some engines may only support `"file"`.
+
 For details of GTP commands such as `time_settings`, [click here](http://www.lysator.liu.se/~gunnar/gtp/gtp2-spec-draft2/gtp2-spec.html).
+
+You may do tests on a computer that can shut down at any random time. An example is AWS EC2 spot instances. In this situation, you may want to send reports regularly to a stable server to prevent data loss. The optional `report` property is for that:
+
+```
+{
+    ...
+    "report": {minutes: 10, uriPrefix: "https://example.com/report"}
+}
+```
+
+Every 10 minutes, it will send an HTTP GET request to `https://example.com/report?testerId=<testId>&data=<data>`, where `testerId` is a random (but fixed during the tester process) string and `data` is the last one-line summary encoded by `encodeURIComponent` function.
 
 There's an optional `spawnOptions` property, so that it could pass environment variables to the engine processes. For example:
 
