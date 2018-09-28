@@ -49,7 +49,7 @@ You may do tests on a computer that can shut down at any random time. An example
 ```
 {
     ...
-    "report": {minutes: 10, uriPrefix: "https://example.com/report"}
+    "report": {"minutes": 10, "uriPrefix": "https://example.com/report"}
 }
 ```
 
