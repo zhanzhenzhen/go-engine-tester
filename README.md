@@ -44,7 +44,7 @@ This will play 30 games between the two engines, alternating black and white for
 
 For details of GTP commands such as `time_settings`, [click here](http://www.lysator.liu.se/~gunnar/gtp/gtp2-spec-draft2/gtp2-spec.html).
 
-You may do tests on a computer that can shut down at any random time. An example is AWS EC2 spot instances. In this situation, you may want to send reports regularly to a stable server to prevent data loss. The optional `report` property is for that:
+You may do tests on a computer that can shut down at any random time. An example is EC2 spot instances. In this situation, you may want to send reports regularly to a server to prevent data loss. The optional `report` property is for that:
 
 ```
 {
@@ -53,7 +53,7 @@ You may do tests on a computer that can shut down at any random time. An example
 }
 ```
 
-Every 10 minutes, it will send an HTTP GET request to `https://example.com/report?testerId=<testId>&data=<data>`, where `testerId` is a random (but fixed during the tester process) string and `data` is the last one-line summary encoded by `encodeURIComponent` function.
+Every 10 minutes, it will send an HTTP GET request to `https://example.com/report?testerId=<testerId>&firstWins=<firstWins>&total=<total>`, where `<testerId>` is a random (but fixed during the tester process) string.
 
 There's an optional `spawnOptions` property, so that it could pass environment variables to the engine processes. For example:
 

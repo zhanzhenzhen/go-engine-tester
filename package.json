@@ -10,7 +10,8 @@
         "url": "https://github.com/zhanzhenzhen/go-engine-tester.git"
     },
     "dependencies": {
-        "@sabaki/gtp": "1.x"
+        "@sabaki/gtp": "1.x",
+        "got": "9.x"
     },
     "engines": {
         "node": ">=8.0.0"
