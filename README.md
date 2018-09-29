@@ -44,7 +44,7 @@ This will play 30 games between the two engines, alternating black and white for
 
 For details of GTP commands such as `time_settings`, [click here](http://www.lysator.liu.se/~gunnar/gtp/gtp2-spec-draft2/gtp2-spec.html).
 
-You may do tests on a computer that can shut down at any random time. An example is EC2 spot instances. In this situation, you may want to send reports regularly to a server to prevent data loss. The optional `report` property is for that:
+You may do tests on a computer that can shut down at any random time. An example is EC2 Spot Instances. In this situation, you may want to send reports regularly to a server to prevent data loss. The optional `report` property is for that:
 
 ```
 {
