@@ -53,7 +53,7 @@ You may do tests on a computer that can shut down at any random time. An example
 }
 ```
 
-Every 10 minutes, it will send an HTTP GET request to `https://example.com/report?testerId=<testerId>&firstWins=<firstWins>&total=<total>`, where `<testerId>` is a random (but fixed during the tester process) string.
+Every 10 minutes, it will send an HTTP GET request to `https://example.com/report?testerId=<testerId>&firstWins=<firstWins>&total=<total>`, where `<testerId>` is a random (but fixed during the tester process) string. Note that in this report, `<total>` is always an even number. The report reflects the last state when `<total>` is even.
 
 There's an optional `spawnOptions` property, so that it could pass environment variables to the engine processes. For example:
 
