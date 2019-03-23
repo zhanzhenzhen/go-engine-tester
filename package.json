@@ -1,6 +1,6 @@
 {
     "name": "go-engine-tester",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "description": "Go (围棋, 囲碁, 바둑) engine tester",
     "keywords": ["go", "engine", "test", "gtp", "bot", "weiqi", "baduk", "game"],
     "author": "Zhenzhen Zhan <zhanzhenzhen@hotmail.com>",
