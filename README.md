@@ -93,8 +93,6 @@ There's an optional `spawnOptions` property, so that it could pass environment v
 
 For details of `spawnOptions`, [click here](https://nodejs.org/dist/latest-v8.x/docs/api/child_process.html#child_process_child_process_spawn_command_args_options).
 
-There's an optional `processQueueSize` property, which can reduce the process loading time by preloading subsequent game processes when the current game is playing. Its default value is 0, meaning this feature is disabled by default. This feature is useful when you want to play very fast games.
-
 # FAQ
 
 Q: Why does it restart the process for each game? Process initialization can be slow!
