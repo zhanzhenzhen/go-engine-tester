@@ -73,7 +73,7 @@ There's an in-process mode, in which it won't start 2 new processes on each game
 }
 ```
 
-Note that while in in-process mode, the engine must support some kind of "reset all" features to reset all state including caches in the previous game in order to make the next game fair. Also note that `lz-reset_all` is just an imaginary GTP command. You should replace it with the real GTP command that does this behavior.
+This can speed up the test especially when moves are very fast and the loading of the neural network takes much time. Note that while in in-process mode, both engines must support some kind of "reset all" features to reset all states including all caches in the previous game in order to make the next game fair. In the above example, `lz-reset_all` is just an imaginary GTP command. You should replace it with the real GTP command that does this behavior.
 
 You may do tests on a computer that can shut down at any random time. An example is EC2 Spot Instances. In this situation, you may want to send reports regularly to a server to prevent data loss. The optional `report` property is for that:
 
@@ -126,6 +126,6 @@ For details of `spawnOptions`, [click here](https://nodejs.org/dist/latest-v8.x/
 
 # FAQ
 
-Q: Why does it restart the process for each game? Process initialization can be slow!
+Q: Why does it restart the process for each game by default? Process initialization can be slow!
 
-A: This ensures that each game is treated equally. A lot of programs are so smart that they can cache the previous calculation to speed up calculations for the next game. We must avoid that, otherwise the result may be incorrect.
+A: This ensures that each game is treated equally. A lot of programs are so smart that they can cache the previous calculation to speed up calculations for the next game. We must avoid that, otherwise the result may be biased. However, we do have an `inProcess` option, which can speed up the test if the engines support it.
