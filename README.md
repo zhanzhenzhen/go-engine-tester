@@ -42,6 +42,35 @@ npx go-engine-tester config.json
 
 This will play 30 games between the two engines, alternating black and white for each game, and finally print the result. Note that the path in `command` is relative to the working directory not the config file. Also note that on Windows, use `\\` not `\` for path separator, or just use `/`.
 
+```json
+{
+    "first": {
+        "command": "./leelaz",
+        "args": ["-w", "network-173.gz", "--gtp", "--noponder"],
+        "initialGtpCommands": [
+            {"name": "komi", "args": ["7.5"]},
+            {"name": "time_settings", "args": ["0", "0", "1"]},
+            {"name": "boardsize", "args": ["19"]}
+            {"name": "lz-reset_all"}
+        ]
+    },
+    "second": {
+        "command": "./leelaz",
+        "args": ["-w", "network-157.gz", "--gtp", "--noponder"],
+        "initialGtpCommands": [
+            {"name": "komi", "args": ["7.5"]},
+            {"name": "time_settings", "args": ["0", "0", "1"]},
+            {"name": "boardsize", "args": ["19"]}
+            {"name": "lz-reset_all"}
+        ]
+    },
+    "times": 30,
+    "inProcess": true
+}
+```
+
+There's an in-process mode, in which it won't start 2 new processes on each game, but instead run all games in the same 2 processes. Note that while in this mode, the engine must support some kind of "reset all" features to reset all state including caches in the previous game in order to make the next game fair. Also note that `lz-reset_all` is just an imaginary GTP command. You should replace it with the real GTP command that does this behavior.
+
 For details of GTP commands such as `time_settings`, [click here](http://www.lysator.liu.se/~gunnar/gtp/gtp2-spec-draft2/gtp2-spec.html).
 
 You may do tests on a computer that can shut down at any random time. An example is EC2 Spot Instances. In this situation, you may want to send reports regularly to a server to prevent data loss. The optional `report` property is for that:
